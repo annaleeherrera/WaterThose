@@ -1,6 +1,5 @@
-# WaterThose
-Ada Developers Acacdemy Capstone 
 ## Water Those
+Ada Developers Acacdemy Capstone 
 ### Automated Plant Watering System
 
 ####Problem Statement
