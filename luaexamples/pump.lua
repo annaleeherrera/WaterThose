@@ -1,5 +1,4 @@
-gpio.mode(3, gpio.OUTPUT)
-tmr.alarm(3,1000,1,function()
+function polling()
   require("http").get("http://waterthose.herokuapp.com/should_water", nil, function(code, data)
     if (code == 200 and data == "Yes") then
       gpio.write(3, gpio.HIGH)
@@ -12,4 +11,7 @@ tmr.alarm(3,1000,1,function()
       print("Turning pump OFF")
     end
   end)
-end)
+end
+
+gpio.mode(3, gpio.OUTPUT)
+tmr.alarm(3,1000,1,polling)
