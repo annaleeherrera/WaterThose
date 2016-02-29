@@ -2,5 +2,13 @@
 source "https://rubygems.org"
 ruby "2.2.3"
 
-# gem "rails"
 gem "sinatra"
+gem "colorize"
+
+group :development do
+  gem "pry"
+end
+
+group :test do
+  gem "rspec"
+end
