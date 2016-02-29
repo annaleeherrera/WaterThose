@@ -1,5 +1,10 @@
-@import "bootstrap-sprockets"
-@import "boostrap"
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono|News+Gothic|Inconsolata|Droid+Sans|Roboto|Cabin|Open+Sans|Raleway|Poiret+One|Lato');
+
+body {
+  background-color: #e6e6e6;
+}
 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
