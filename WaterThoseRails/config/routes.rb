@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
   root "home#index"
+  get 'devices/info/:mac_address' => 'devices#info', as: :device_should_water
+  resources :devices do
+    get :should_water
+    post :water, as: :water
+  end
   resources :devices
   resources :users
   resources :sessions
