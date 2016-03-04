@@ -12,8 +12,19 @@ h1 {
 }
 
 h2 {
+  padding-top: 150px;
   font-family: Cabin, monospace;
   text-align: center;
+}
+
+.jumbotron {
+  background-image: url(wilted_plant.png);
+  background-size: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: white;
+
+
 }
 
 .btn-info {
