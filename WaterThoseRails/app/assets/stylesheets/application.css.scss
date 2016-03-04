@@ -8,13 +8,26 @@ body {
 
 h1 {
   font-family: Pacifico, monospace;
-  font-size: 72px;
+  font-size: 150px;
 }
 
 h2 {
-  padding-top: 150px;
   font-family: Cabin, monospace;
   text-align: center;
+}
+
+li {
+  font-family: Lato, monospace;
+  text-transform: uppercase;
+}
+
+p {
+  font-family: Lato, monospace;
+}
+
+.container-fixed {
+  margin: 0 auto;
+  max-width: 800px;
 }
 
 .jumbotron {
@@ -23,7 +36,6 @@ h2 {
   background-position: center;
   background-repeat: no-repeat;
   background-color: white;
-
 
 }
 
