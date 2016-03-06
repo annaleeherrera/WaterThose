@@ -1,11 +1,7 @@
 Rails.application.routes.draw do
   root "home#index"
-  get 'device_info/:mac_address' => 'devices#info'
-  resources :devices do
-    get :should_water, as: :should_water
-    post :water, as: :water
-  end
-  resources :devices
+  get '/devices/should_water' => 'devices#should_water'
+  post '/devices/water' => 'devices#water'
   resources :users
   resources :sessions
   # The priority is based upon order of creation: first created -> highest priority.

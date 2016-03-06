@@ -1,6 +1,22 @@
 class UsersController < ApplicationController
 
-  
+  def new
+    @user = User.new
+  end
+
+  def show
+    @device = Device.new
+    #change this to Device.find_by id
+  end
+
+  def create
+    user = User.new
+    if user.save
+    flash[:notice] = "Welcome to Water Those! You are now registered."
+    redirect_to user_path
+    end
+  end
+
 
   def redirect
   client = Signet::OAuth2::Client.new({
@@ -14,5 +30,8 @@ class UsersController < ApplicationController
   redirect_to client.authorization_uri.to_s
   end
 
+  def user_params
+    params.require(:user).permit(:username, :email, :password, :name, :should_water)
+  end
 
 end

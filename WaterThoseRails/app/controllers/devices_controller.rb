@@ -1,47 +1,41 @@
+require 'pry'
 class DevicesController < ApplicationController
-  #Device client
-  #pass a post request upon plug in w/ assigning an id
+  skip_before_filter :verify_authenticity_token
   before_action :find_device
-  before_action :assign
-
-  def info
-    device = Device.create(mac_address:'123abc')
-    #insert value from lua code for mac_address
-    device_should_water_url(device)
-  end
-
-  def assign
-    # device = Device.where(id: device_params[:id])
-    if device = nil
-      device = Device.create
-    end
-  end
+  attr_accessor :device
+  #NodeMCU does not provide an authenticity token bc it is not the user's browser
 
   def should_water
-    device = Device.where(id: device_params[:id])
     #if device_id is nil, assign an id
     #device.create
-    if device.should_water == false
-      render plain: "No"
-    elsif device.should_water == true
+    if @device.should_water
       render plain: "Yes"
-      flash.now[:alert] = "Thanks, #{user.username}!"
-      redirect_to root_path, status: 200
+    else
+      render plain: "No"
     end
-  device.should_water = false
+    @device.should_water = false
+    @device.save!
   end
 
   #User client
   def water
-    # device = Device.where(id: device_params[:device_id])
-    device.should_water = true
+    @device.should_water = true
+    @device.save!
+    flash.now[:alert] = "Thank you!"
+    redirect_to root_path, status: 200
   end
 
   def find_device
-    device = Device.find_by(params[:id])
+    @device = Device.find_by(mac_address: params[:mac_address])
+    if @device == nil
+      @device = Device.create
+      @device.mac_address = device_params[:mac_address]
+      @device.save!
+    end
   end
 
   def device_params
-    params.require(:device).permit(:id, :user_id, :mac_address, :name, :should_water)
+    raise "mac_address param required" unless params.has_key?(:mac_address)
+    return params
   end
 end
