@@ -11,6 +11,14 @@
   <%= submit_tag("Register Device") %>
 <% end %>
 
-<% @devices.each do |device| %>
-  <%= device.mac_address %>
+<ul> <% @devices.each do |device| %>
+  <li><%= device.name %>
+    <a class="btn btn-primary btn-lg water_button"
+      href="#"
+      role="button"
+      data-mac-address="<%=device.mac_address%>">
+      Water Now
+    </a>
+  </li>
   <% end %>
+</ul>
