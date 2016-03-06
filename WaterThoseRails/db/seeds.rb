@@ -1,6 +1,5 @@
 devices = [
   {
-    device_id: 1,
     user_id: 1,
     mac_address: "12345",
     should_water: false,
@@ -8,11 +7,10 @@ devices = [
   },
 
   {
-    device_id: 2,
     user_id: 2,
-    mac_address: "12345",
+    mac_address: "123456",
     should_water: false,
-    name: "Device1"
+    name: "Device2"
   }
 ]
 

@@ -1,4 +1,16 @@
-show user path
-<!-- @devices.each do |device|
-  device.name
-  #add button next to it w post -->
+<%= form_tag({action: "register_device"}, {class:
+  "form-inline"})  do %>
+  <div class="form-group">
+    <%= label_tag(:name, "Plant Name") %>
+    <%= text_field_tag(:name, nil, placeholder: 'Steve', class: "form-control") %>
+  </div>
+  <div class="form-group">
+    <%= label_tag(:mac_address, "MAC Address") %>
+    <%= text_field_tag(:mac_address, nil, placeholder: '123ab', class: "form-control") %>
+  </div>
+  <%= submit_tag("Register Device") %>
+<% end %>
+
+<% @devices.each do |device| %>
+  <%= device.mac_address %>
+  <% end %>

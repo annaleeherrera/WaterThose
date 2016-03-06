@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   get '/devices/should_water' => 'devices#should_water'
   post '/devices/water' => 'devices#water'
   resources :users
+  post '/users/:id/register_device' => 'users#register_device'
   resources :sessions
+  get '/logout' => 'sessions#destroy'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

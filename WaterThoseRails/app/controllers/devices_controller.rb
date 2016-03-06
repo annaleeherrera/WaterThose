@@ -6,8 +6,6 @@ class DevicesController < ApplicationController
   #NodeMCU does not provide an authenticity token bc it is not the user's browser
 
   def should_water
-    #if device_id is nil, assign an id
-    #device.create
     if @device.should_water
       render plain: "Yes"
     else
@@ -26,12 +24,12 @@ class DevicesController < ApplicationController
   end
 
   def find_device
-    @device = Device.find_by(mac_address: params[:mac_address])
-    if @device == nil
-      @device = Device.create
-      @device.mac_address = device_params[:mac_address]
-      @device.save!
-    end
+    @device = Device.find_by!(mac_address: params[:mac_address])
+    # if @device == nil
+    #   @device = Device.create
+    #   @device.mac_address = device_params[:mac_address]
+    #   @device.save!
+    # end
   end
 
   def device_params

@@ -1,20 +1,22 @@
 class UsersController < ApplicationController
 
-  def new
-    @user = User.new
-  end
-
   def show
-    @device = Device.new
+    @devices = User.find(params[:id]).devices
     #change this to Device.find_by id
   end
 
-  def create
-    user = User.new
-    if user.save
-    flash[:notice] = "Welcome to Water Those! You are now registered."
+  def register_device
+    device = Device.new({
+      :mac_address => params[:mac_address],
+      :name  => params[:name]
+    })
+    User.find(params[:id]).devices << device
     redirect_to user_path
-    end
+  end
+
+  def create
+    user = User.create(:email_address => params[:email_address], :password => params[:password])
+    user.save!
   end
 
 
@@ -31,7 +33,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:username, :email, :password, :name, :should_water)
+    params.require(:user).permit(:email_address, :password)
   end
-
 end
