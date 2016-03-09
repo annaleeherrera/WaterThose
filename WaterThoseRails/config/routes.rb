@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   post '/users/:id/register_device' => 'users#register_device'
   resources :sessions
   get '/logout' => 'sessions#destroy'
-  get "/.well-known/acme-challenge/#{ENV['LE_AUTH_REQUEST']}", to: 'welcome#letsencrypt'
+  get "/.well-known/acme-challenge/#{ENV['LE_AUTH_REQUEST']}", to: 'home#letsencrypt'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
