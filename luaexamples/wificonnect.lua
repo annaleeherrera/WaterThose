@@ -1,4 +1,4 @@
 print('now connecting to wifi')
 wifi.setmode(wifi.STATION)
-wifi.sta.config("BroadCityAD","georgemichael85")
+wifi.sta.config("notatruck","diskswim9")
 print(wifi.sta.getip())

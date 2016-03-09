@@ -9,7 +9,6 @@ class DevicesController < ApplicationController
     days_between = Date.today - @device.last_auto_water_date
     has_been_enough_days = days_between >= @device.auto_water_period_days
     is_after_watering_hour = Time.now.utc.hour >= @device.auto_water_hour_utc
-    binding.pry
     if @device.manual_watering_requested
       @device.manual_watering_requested = false
       @device.save!
