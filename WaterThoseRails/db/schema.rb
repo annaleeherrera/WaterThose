@@ -11,15 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160305203848) do
+ActiveRecord::Schema.define(version: 20160309061846) do
 
   create_table "devices", force: :cascade do |t|
     t.integer  "user_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.string   "mac_address"
-    t.boolean  "should_water"
+    t.boolean  "manual_watering_requested"
     t.string   "name"
+    t.date     "last_auto_water_date"
+    t.integer  "auto_water_period_days"
+    t.integer  "auto_water_hour_utc"
   end
 
   create_table "users", force: :cascade do |t|

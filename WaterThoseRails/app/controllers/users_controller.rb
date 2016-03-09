@@ -8,7 +8,11 @@ class UsersController < ApplicationController
   def register_device
     device = Device.new({
       :mac_address => params[:mac_address],
-      :name  => params[:name]
+      :name => params[:name],
+      :manual_watering_requested => false,
+      :last_auto_water_date => Time.now,
+      :auto_water_period_days => params[:auto_water_period_days],
+      :auto_water_hour_utc => params[:auto_water_hour_utc]
     })
     User.find(params[:id]).devices << device
     redirect_to user_path
