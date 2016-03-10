@@ -1,4 +1,3 @@
-require 'pry'
 class DevicesController < ApplicationController
   skip_before_filter :verify_authenticity_token
   before_action :find_device
