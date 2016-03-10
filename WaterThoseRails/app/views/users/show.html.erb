@@ -11,11 +11,6 @@
   <div class="form-group">
     <%= label_tag(:auto_water_period_days, "Water every (days)") %>
     <%= text_field_tag(:auto_water_period_days, 2, placeholder: 'days', class: "form-control") %>
-    <%=form_for @device.auto_water_hour_utc do |f| %>
-    <%= f.datetime_select(:auto_water_hour_utc, :default => { :hour => 23, :minute => 59 }) %>
-    <% end %>
-    <!-- <%= label_tag(:auto_water_hour_utc, "Time") %>
-    <%= text_field_tag(:auto_water_hour_utc, 7, placeholder: 'hour', class: "form-control") %> -->
   </div>
 
 
