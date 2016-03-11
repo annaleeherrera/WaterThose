@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   root "home#index"
   # delete '/devices/:mac_address', to: 'devices#destroy', as: 'device_destroy'
-  resources :devices, param: :mac_address
   get '/devices/should_water' => 'devices#should_water'
   post '/devices/water' => 'devices#water'
+  resources :devices, param: :mac_address
   resources :users
   post '/users/:id/register_device' => 'users#register_device'
   resources :sessions
