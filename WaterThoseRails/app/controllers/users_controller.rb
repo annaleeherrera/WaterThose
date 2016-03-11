@@ -23,6 +23,10 @@ class UsersController < ApplicationController
     redirect_to user_path
   end
 
+  def new
+    @user = User.new
+  end
+
   def create
     user = User.create(:email_address => params[:email_address], :password => params[:password])
     user.save!

@@ -2,14 +2,14 @@ devices = [
   {
     user_id: 1,
     mac_address: "12345",
-    should_water: false,
+    manual_watering_requested: false,
     name: "Device1"
   },
 
   {
     user_id: 2,
     mac_address: "123456",
-    should_water: false,
+    manual_watering_requested: false,
     name: "Device2"
   }
 ]
@@ -17,16 +17,18 @@ devices = [
 users = [
   {
     username: "annalee",
-    email_address: "annaleeherrera@gmail.com"
+    email_address: "annaleeherrera@gmail.com",
+    password: "123",
+    password_confirmation: "123"
   }
 ]
 
 devices.each do |device|
-  Device.create(device)
+  Device.create!(device)
 end
 
 users.each do |user|
-  User.create(user)
+  User.create!(user)
 end
 
 # This file should contain all the record creation needed to seed the database with its default values.

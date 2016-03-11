@@ -1,14 +1,19 @@
 <h2>Sign Up</h2>
-
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
 <%= form_tag({action: "create"}, {class:
   "form-inline"})  do %>
   <div class="form-group">
     <%= label_tag(:email_address, "Email Address") %>
-    <%= text_field_tag(:email_address, nil, class: "form-control") %>
+    <%= text_field_tag(:email_address, nil, required: "required", class: "form-control") %>
   </div>
   <div class="form-group">
     <%= label_tag(:password, "Password") %>
-    <%= password_field_tag(:password, nil, class: "form-control") %>
+    <%= password_field_tag(:password, nil, required: "required", class: "form-control") %>
+    <%= label_tag(:password_confirmation, "Password Confirmation")%>
+    <%= password_field_tag(:password_confirmation, nil, required: "required", class: "form-control") %><br>
   </div>
   <%= submit_tag("Register") %>
 <% end %>
+  </div>
+</div>
