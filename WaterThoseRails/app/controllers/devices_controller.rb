@@ -38,6 +38,17 @@ class DevicesController < ApplicationController
     # end
   end
 
+  def destroy
+    device = Device.find_by_mac_address(params[:mac_address])
+    user = device.user
+    device.destroy
+    redirect_to user_path(user)
+  end
+
+  def edit
+    render :edit
+  end
+
   def device_params
     raise "mac_address param required" unless params.has_key?(:mac_address)
     return params

@@ -12,19 +12,26 @@
     <%= label_tag(:auto_water_period_days, "Water every (days)") %>
     <%= text_field_tag(:auto_water_period_days, 2, placeholder: 'days', class: "form-control") %>
   </div>
-
-
   <%= submit_tag("Register Device") %>
 <% end %>
 
-<ul> <% @devices.each do |device| %>
-  <li><%= device.name %>
-    <a class="btn btn-primary btn-lg water_button"
-      href="#"
-      role="button"
-      data-mac-address="<%=device.mac_address%>">
-      Water Now
-    </a>
-  </li>
-  <% end %>
-</ul>
+<table class = "table table-responsive">
+  <tr>
+    <th> Plant </th>
+  </tr>
+  <% @devices.each do |device| %>
+  <tr>
+    <td><%= device.name %></td>
+    <td><a class="btn btn-primary btn-lg water_button"
+        href="#"
+        role="button"
+        data-mac-address="<%=device.mac_address%>">
+        Water Now
+      </a>
+    </td>
+    <td><%= link_to "Edit", edit_device_path(device), class: "btn btn-warning" %></td>
+    <td><%= link_to "Delete", device_path(device), method: :delete, data: { confirm: 'Delete Book, For Real?' }, class: "btn btn-danger" %></td>
+    <% end %>
+  </tr>
+
+</table>

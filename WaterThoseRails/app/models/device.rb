@@ -5,4 +5,8 @@ class Device < ActiveRecord::Base
   def create
     device = Device.create
   end
+
+  def to_param
+    mac_address
+  end
 end

@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   def show
+    @user = User.find(params[:id])
     @devices = User.find(params[:id]).devices
     #change this to Device.find_by id
   end
@@ -22,7 +23,6 @@ class UsersController < ApplicationController
     user = User.create(:email_address => params[:email_address], :password => params[:password])
     user.save!
   end
-
 
   def redirect
   client = Signet::OAuth2::Client.new({
