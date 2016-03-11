@@ -3,7 +3,7 @@ pumpOnTime = 5000
 pollingInterval = 500
 pumpPin = 1
 mac_address = string.gsub(wifi.sta.getmac(),":","%%3A")
-poll_url = "http://192.168.1.138:3000/devices/should_water?mac_address="..mac_address
+poll_url = "http://www.waterthose.online/devices/should_water?mac_address="..mac_address
 print(mac_address)
 print(poll_url)
 function polling()
