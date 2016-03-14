@@ -9,11 +9,13 @@ class SessionsController < ApplicationController
         redirect_to root_path
       else
         flash.now[:error] = "Your email was not found or password did not match. Please try again."
-        render :login_failed
+        # render :login_failed
+        redirect_to root_path
       end
     else
       flash.now[:error] = "Your email was not found or password did not match. Please try again or sign up to create a new user."
-      render :login_failed
+      # render :login_failed
+      redirect_to root_path
     end
   end
 

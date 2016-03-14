@@ -25,7 +25,7 @@ class DevicesController < ApplicationController
   def water
     @device.manual_watering_requested = true
     @device.save!
-    flash.now[:alert] = "Thank you!"
+    flash.now[:alert] = "Your plant has been watered!"
     redirect_to root_path, status: 200
   end
 

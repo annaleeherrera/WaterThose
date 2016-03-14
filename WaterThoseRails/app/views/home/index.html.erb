@@ -2,12 +2,10 @@
    <% if current_user %>
     <%= link_to "Log Out", logout_path, class: "btn btn-default" %>
     <%= link_to "Manage Devices", user_path(current_user), class: "btn btn-default" %>
-
      <% else %>
      <h2>Login</h2>
      <%= form_for(:session_data, {url: sessions_path, class:
-       "form-inline"}) do |f| %>
-       <div class="form-group">
+       "form-group"}) do |f| %>
          <%= f.label :email_address %>:
          <%= f.email_field :email_address, class: "form-control", :required => true %>
 
@@ -15,23 +13,14 @@
          <%= f.password_field :password, class: "form-control", :required => true %><br>
 
          <%= f.submit "Login", class: "btn btn-success" %>      <%=link_to "Sign Up", new_user_path, class: "btn btn-primary"%>
-
-     </div>
      <% end %>
-
   <% end %>
-
-
 </div>
-   <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-   <p><a class="btn btn-default" href="#" role="button">View details »</a></p> </div>
- <div class="col-md-4">
-   <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-    <h2>Heading</h2>
-   <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
-   <p><a class="btn btn-default" href="#" role="button">View details »</a></p> </div>
+<div class="col-md-4">
+  <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+   <h2>Heading</h2>
+  <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+  <p><a class="btn btn-default" href="#" role="button">View details »</a></p> </div>
+</div>
  </div>
  </div>
- </div>
- <hr>
- </nav>

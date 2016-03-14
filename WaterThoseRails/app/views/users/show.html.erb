@@ -1,3 +1,7 @@
+<div class= "col-md-12">
+<div class="panel panel-primary">
+  <div class="panel-heading">Register Device</div>
+  <div class="panel-body">
 <%= form_tag({action: "register_device"}, {class:
   "form-inline"})  do %>
   <%= hidden_field_tag(:timezone_offset) %>
@@ -39,28 +43,36 @@
       ["11pm", "23"],
       ["12pm", "24"]
       ])) %>
-  </div>
-
-  <%= submit_tag("Register Device") %>
-<% end %>
-
-<table class = "table table-responsive">
-  <tr>
-    <th> Plant </th>
-  </tr>
-  <% @devices.each do |device| %>
-  <tr>
-    <td><%= device.name %></td>
-    <td><a class="btn btn-primary"
-        href="#"
-        role="button"
-        data-mac-address="<%=device.mac_address%>">
-        Water Now
-      </a>
-    </td>
-    <td><%= link_to "Edit", edit_device_path(device), class: "btn btn-warning" %></td>
-    <td><%= link_to "Delete", device_path(device), method: :delete, data: { confirm: 'Delete Book, For Real?' }, class: "btn btn-danger" %></td>
+      <%= submit_tag("Register") %>
     <% end %>
-  </tr>
+    </div>
+  </div>
+</div>
 
-</table>
+<div class="panel panel-info">
+  <div class="panel-heading">Devices</div>
+  <div class="panel-body">
+    <table class = "table table-responsive">
+      <%= label_tag(:name, "Plant Name") %>
+      <!-- <tr>
+        <th> Plant </th>
+      </tr> -->
+      <% @devices.each do |device| %>
+      <tr>
+        <td><%= device.name %></td>
+        <td><a class="btn btn-primary"
+          href="#"
+          role="button"
+          data-mac-address="<%=device.mac_address%>">
+          Water Now
+          </a>
+        </td>
+        <td><%= link_to "Edit", edit_device_path(device), class: "btn btn-warning" %></td>
+        <td><%= link_to "Delete", device_path(device), method: :delete, data: { confirm: 'Delete Book, For Real?' }, class: "btn btn-danger" %></td>
+        <% end %>
+      </tr>
+    </table>
+
+  </div>
+</div>
+</div>

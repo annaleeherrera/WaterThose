@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono|News+Gothic|Inconsolata|Droid+Sans|Roboto|Cabin|Open+Sans|Raleway|Poiret+One|Lato|Pacifico');
 
 body {
-  background-color: #e6e6e6;
+  background-color: #F8F8F8;
 }
 
 h1 {
@@ -36,14 +36,8 @@ p {
   background-position: center;
   background-repeat: no-repeat;
   background-color: white;
-
 }
 
-footer {
-  float:left;
-   padding:15px 0;
-   min-width:100%;
-}
 
 // .table-hover {
 //   text-align: center;
@@ -54,6 +48,15 @@ footer {
   text-align: center;
   }
 
+footer {
+  background-image: asset_url("grass.png");
+  padding-top: 181px;
+  background-color: #F8F8F8;
+}
+
+nav {
+  background-color: #e6e6e6;
+}
 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
