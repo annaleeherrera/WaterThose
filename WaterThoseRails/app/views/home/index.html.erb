@@ -14,29 +14,15 @@
          <%= f.label :password %>:
          <%= f.password_field :password, class: "form-control", :required => true %><br>
 
-         <%= f.submit "Login", class: "btn btn-default" %>
+         <%= f.submit "Login", class: "btn btn-success" %>      <%=link_to "Sign Up", new_user_path, class: "btn btn-primary"%>
+
      </div>
      <% end %>
-     <%=link_to "Sign Up", new_user_path, class: "btn btn-default"%>
 
   <% end %>
 
 
 </div>
-<div class="col-md-4">
-   <h2>Register</h2>
-   <%= form_for(:session_data, {url: sessions_path, class:
-     "form-inline"}) do |f| %>
-     <div class="form-group">
-       <%= f.label :email_address %>:
-       <%= f.email_field :email_address, class: "form-control", :required => true %>
-
-       <%= f.label :password %>:
-       <%= f.password_field :password, class: "form-control", :required => true %><br>
-
-       <%= f.submit "Register", class: "btn btn-default" %>
-   </div>
-   <% end %>
    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
    <p><a class="btn btn-default" href="#" role="button">View details »</a></p> </div>
  <div class="col-md-4">

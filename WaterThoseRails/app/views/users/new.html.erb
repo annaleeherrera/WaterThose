@@ -1,19 +1,22 @@
-<h2>Sign Up</h2>
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-<%= form_tag({action: "create"}, {class:
-  "form-inline"})  do %>
-  <div class="form-group">
-    <%= label_tag(:email_address, "Email Address") %>
-    <%= text_field_tag(:email_address, nil, required: "required", class: "form-control") %>
-  </div>
-  <div class="form-group">
-    <%= label_tag(:password, "Password") %>
-    <%= password_field_tag(:password, nil, required: "required", class: "form-control") %>
-    <%= label_tag(:password_confirmation, "Password Confirmation")%>
-    <%= password_field_tag(:password_confirmation, nil, required: "required", class: "form-control") %><br>
-  </div>
-  <%= submit_tag("Register") %>
-<% end %>
+<div class="center-div">
+    <div class="form-group">
+      <div class="col-md-6">
+          <h2>Register</h2><br>
+    <% if @user.errors.any? %>
+      <% for message in @user.errors.full_messages %>
+        <div class="alert alert-danger"><%= flash.now[:error] %><%= message %></div>
+      <% end %>
+    <% end %>
+
+    <%= form_for @user do |f| %>
+      <%= f.label :email_address %>
+      <%= f.email_field :email_address, placeholder: ' Email', :class => "form-control" %><br>
+      <%= f.label :password %>
+      <%= f.password_field :password, placeholder: 'Password', :class => "form-control" %><br>
+      <%= f.label :password_confirmation, "Confirm password" %>
+      <%= f.password_field :password_confirmation, placeholder: 'Confirm Password', :class => "form-control" %><br>
+      <%= f.submit :class => 'btn btn-success'%>
+    <% end %>
+    </div>
   </div>
 </div>
