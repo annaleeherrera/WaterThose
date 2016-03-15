@@ -1,6 +1,6 @@
 <div class= "col-md-12">
 <div class="panel panel-primary">
-  <div class="panel-heading">Register Device</div>
+  <div class="panel-heading">Register Plant</div>
   <div class="panel-body">
 <%= form_tag({action: "register_device"}, {class:
   "form-inline"})  do %>
@@ -10,7 +10,7 @@
     <%= text_field_tag(:name, nil, placeholder: 'Steve', required: "required", class: "form-control") %>
   </div>
   <div class="form-group">
-    <%= label_tag(:mac_address, "MAC Address") %>
+    <%= label_tag(:mac_address, "Device ID") %>
     <%= text_field_tag(:mac_address, nil, placeholder: '123ab', required: "required", class: "form-control") %>
   </div>
   <div class="form-group">
@@ -50,7 +50,7 @@
 </div>
 
 <div class="panel panel-info">
-  <div class="panel-heading">Devices</div>
+  <div class="panel-heading">Plants</div>
   <div class="panel-body">
     <table class = "table table-responsive">
       <%= label_tag(:name, "Plant Name") %>
