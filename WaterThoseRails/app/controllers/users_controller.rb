@@ -20,7 +20,7 @@ class UsersController < ApplicationController
       })
       User.find(params[:id]).devices << device
     end
-    redirect_to user_path
+    redirect_to user_path(current_user)
   end
 
   def new
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
       if @user.save
         flash[:notice] = "Welcome to Water Those! You are now logged in."
-        redirect_to user_path
+        redirect_to user_path(@user)
       else
         redirect_to root_path
       end
