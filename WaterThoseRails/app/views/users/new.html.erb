@@ -2,8 +2,8 @@
     <div class="form-group">
       <div class="col-md-4 col-md-offset-4">
           <h2>Register</h2><br>
-    <% if @user.errors.any? %>
-      <% for message in @user.errors.full_messages %>
+          <% if @user.errors.any? %>
+          <% for message in @user.errors.full_messages %>
         <div class="alert alert-danger"><%= flash.now[:error] %><%= message %></div>
       <% end %>
     <% end %>

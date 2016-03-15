@@ -14,7 +14,10 @@
     <div class="navbar-header">
      <!-- <a class="navbar-brand" href="#"></a> -->
    </div>
-
+   <aside id="bar-left" class="bar-side">
+     <div>"Thank you." - Your Plants</div></aside>
+   <aside id="bar-right" class="bar-side right-side">
+     <div class="right-side">Don't kill me! - Your Plants</div></aside>
    <!-- Collect the nav links, forms, and other content for toggling -->
    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
      <ul class="nav navbar-nav">
@@ -26,6 +29,7 @@
      <% if current_user.nil? %>
        <li><%= link_to "Login", root_path %></li>
        <li><%= link_to "Sign Up", new_user_path %></li>
+
      <% else %>
      <li><%= link_to "Manage Devices", user_path(current_user) %></li>
     <li><%= link_to "Logout", logout_path %></li>
@@ -40,7 +44,7 @@
     <div class="jumbotron-contents">
       <h1>Water Those</h1>
       <div class="jumbotron-details">
-        <p>Don't kill your plants.</p>
+        <p>Keep your plants happy.</p>
         <br>
         <br>
         <br>
