@@ -1,9 +1,33 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono|News+Gothic|Inconsolata|Droid+Sans|Roboto|Cabin|Open+Sans|Raleway|Poiret+One|Lato|Pacifico');
 
+html {
+  position: relative;
+}
 body {
   background-color: #F8F8F8;
+  min-height: 100%;
+  // background-image: asset_url("grass.png");
+  // background-position: center bottom;
+  // background-repeat: no-repeat;
+  // position: relative;
 }
 
 h1 {
@@ -25,17 +49,16 @@ p {
   font-family: Lato, monospace;
 }
 
-.container-fixed {
-  margin: 0 auto;
-  max-width: 1000px;
-}
+// .container-fixed {
+//   margin: 0 auto;
+//   max-width: 1000px;
+// }
 
 .jumbotron {
-  background-image: asset_url("wilted_plant.png");
-  background-size: auto;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: asset_url("wilted_plant.png") no-repeat center right;
   background-color: white;
+  border-right: 100px solid white;
+  height: 300px;
 }
 
 
@@ -49,27 +72,22 @@ p {
   }
 
 footer {
-  background-image: asset_url("grass.png");
-  padding-top: 181px;
-  background-color: #F8F8F8;
+  bottom: 0;
+  width: 100%;
+  position: absolute;
+  height: 183px;
+  background: asset_url("grass.png");
 }
 
-nav {
+.navbar {
+  margin-bottom: 0;
   background-color: #e6e6e6;
 }
 
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+.jumbotron-contents {
+  margin-left: 100px;
+}
+
+.jumbotron-details {
+  margin-left: 14px;
+}
