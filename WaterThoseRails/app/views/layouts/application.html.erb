@@ -19,11 +19,18 @@
    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
      <ul class="nav navbar-nav">
        <li class="active"><a href="/">Home <span class="sr-only">(current)</span></a></li>
-       <li><a href="#">About</a></li>
+
      </ul>
    <!-- code for the right side of the navbar -->
-     <ul class="nav navbar-nav navbar-right">
-       <li><a href="#">Contact Us</a></li>
+   <ul class="nav navbar-nav navbar-right">
+     <% if current_user.nil? %>
+       <li><%= link_to "Login", root_path %></li>
+       <li><%= link_to "Sign Up", new_user_path %></li>
+     <% else %>
+      <li><%= link_to "Logout", logout_path %></li>
+      <li><%= link_to "Manage Devices", user_path(current_user) %></li>
+     <% end %>
+   </ul>
      </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -40,7 +47,9 @@
   </div>
   <!-- end jumbotron -->
 
-  <%= yield %>
+  <div class="contents">
+    <%= yield %>
+  </div>
   <footer>
   </footer>
 </body>

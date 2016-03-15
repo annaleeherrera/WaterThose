@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root "home#index"
   # delete '/devices/:mac_address', to: 'devices#destroy', as: 'device_destroy'
+  get "/.well-known/acme-challenge/#{ENV['LE_AUTH_REQUEST']}", to: 'home#letsencrypt'
   get '/devices/should_water' => 'devices#should_water'
   post '/devices/water' => 'devices#water'
   resources :devices, param: :mac_address
@@ -8,7 +9,6 @@ Rails.application.routes.draw do
   post '/users/:id/register_device' => 'users#register_device'
   resources :sessions
   get '/logout' => 'sessions#destroy'
-  get "/.well-known/acme-challenge/#{ENV['LE_AUTH_REQUEST']}", to: 'home#letsencrypt'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
