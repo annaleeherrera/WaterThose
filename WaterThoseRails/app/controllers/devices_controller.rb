@@ -49,6 +49,19 @@ class DevicesController < ApplicationController
     render :edit
   end
 
+  def update
+    device = Device.find_by_mac_address(params[:mac_address])
+    device.name=params[:name]
+    device.mac_address=params[:mac_address]
+    device.auto_water_period_days=params[:auto_water_period_days]
+    device.auto_water_hour_utc=params[:auto_water_hour_utc]
+      if device.save
+        redirect_to profile_path
+      else
+      render :edit
+    end
+  end
+
   def device_params
     raise "mac_address param required" unless params.has_key?(:mac_address)
     return params
