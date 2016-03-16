@@ -42,7 +42,7 @@ class DevicesController < ApplicationController
     device = Device.find_by_mac_address(params[:mac_address])
     user = device.user
     device.destroy
-    redirect_to user_path(user)
+    redirect_to profile_path
   end
 
   def edit
