@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   get '/devices/should_water' => 'devices#should_water'
   post '/devices/water' => 'devices#water'
   resources :devices, param: :mac_address
-  resources :users
-  post '/users/:id/register_device' => 'users#register_device'
+  get '/profile' => 'users#show'
+  post '/users' => 'users#create'
+  get '/users/new' => 'users#new'
+  post '/users/register_device' => 'users#register_device'
   resources :sessions
   get '/logout' => 'sessions#destroy'
   get "/.well-known/acme-challenge/#{ENV['LE_AUTH_REQUEST']}", to: 'home#letsencrypt'

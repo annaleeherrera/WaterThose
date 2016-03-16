@@ -1,11 +1,12 @@
 class UsersController < ApplicationController
-
   before_action :current_user
 
   def show
-    @user = User.find(params[:id])
-    @devices = User.find(params[:id]).devices
-    #change this to Device.find_by id
+    if @current_user.nil?
+      redirect_to new_session_path
+    else
+      @devices = @current_user.devices
+    end
   end
 
   def register_device
@@ -21,7 +22,7 @@ class UsersController < ApplicationController
         :auto_water_hour_utc => (params[:auto_water_hour_local].to_i +
           params[:timezone_offset].to_i/60)%24
       })
-      User.find(params[:id]).devices << device
+      @current_user.devices << device
     end
     redirect_to user_path(current_user)
   end
@@ -34,7 +35,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
       if @user.save
         flash[:notice] = "Welcome to Water Those! You are now logged in."
-        redirect_to user_path(@user)
+        session[:user_id] = @user.id
+        redirect_to profile_path
       else
         redirect_to root_path
       end

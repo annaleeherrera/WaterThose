@@ -28,78 +28,63 @@ body {
   min-height: 100%;
 }
 
-.contents {
-  height: 650px;
+#main-contents {
+  padding-top: 20px;
+  background-color: white;
 }
 
-#bar-left {
-    left: 0;
-}
+#home-banner {
+  .col-md-5 {
+    text-align: center;
+  }
 
-#bar-right {
-    right: 0;
-}
+  li {
+    font-family: Cabin, monospace;
+    font-size: 20px;
+    line-height: 2.5em;
+    margin-left: 1.0em;
 
-.bar-side>div.right-side {
-  left: auto;
-  top: 270px;
-  right: 34px;
-  color: #555555;
-  transform-origin: 100% 100%;
-  transform: rotate(90deg);
-}
+  }
+  h2 {
+    margin-left: 0.75em;
+  }
 
-.bar-side>div {
-  display: inline-block;
-  position: absolute;
-  top: 270px;
-  left: 24px;
-  width: 300px;
-  height: 12px;
-  line-height: 12px;
-  margin-top: 150px;
-  text-align: center;
-  transform: rotate(-90deg);
-  transform-origin: 0 0;
-  color: #555555
-}
+  ul{
+    margin-top: 30px;
+  }
 
+  img {
+    width: 100%;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+
+  .btn {
+    margin-bottom: 30px;
+  }
+}
 
 h1 {
   font-family: Pacifico, monospace;
-  font-size: 200px;
+  font-size: 70px;
 }
 
 h2 {
   font-family: Cabin, monospace;
-  text-align: center;
 }
 
-li {
-  font-family: Lato, monospace;
-  text-transform: uppercase;
+.navbar {
+  margin-bottom: 0;
+  background-color: #e6e6e6;
+  li {
+    font-family: Lato, monospace;
+    text-transform: uppercase;
+  }
 }
 
 p {
   font-family: Lato, monospace;
 }
-
-// .container-fixed {
-//   margin: 0 auto;
-//   max-width: 1000px;
-// }
-
-.jumbotron {
-  background: asset_url("wilted_plant.png") no-repeat center right;
-  background-color: white;
-  border-right: 100px solid white;
-  height: 400px;
-}
-
-
-// .table-hover {
-//   text-align: center;
-// }
 
 .btn-info {
   margin: 0 auto;
@@ -112,18 +97,4 @@ footer {
   height: 183px;
   background: asset_url("grass.png");
   display: block;
-
-}
-
-.navbar {
-  margin-bottom: 0;
-  background-color: #e6e6e6;
-}
-
-.jumbotron-contents {
-  margin-left: 100px;
-}
-
-.jumbotron-details {
-  margin-left: 14px;
 }

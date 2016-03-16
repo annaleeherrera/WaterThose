@@ -6,16 +6,15 @@ class SessionsController < ApplicationController
     if !@user.nil?
       if @user.authenticate(data[:password])
         session[:user_id] = @user.id
-        redirect_to root_path
+        redirect_to profile_path
       else
         flash.now[:error] = "Your email was not found or password did not match. Please try again."
         # render :login_failed
-        redirect_to root_path
+        redirect_to new_session_path
       end
     else
       flash.now[:error] = "Your email was not found or password did not match. Please try again or sign up to create a new user."
-      # render :login_failed
-      redirect_to root_path
+      redirect_to new_session_path
     end
   end
 
