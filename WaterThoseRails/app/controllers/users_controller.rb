@@ -24,7 +24,7 @@ class UsersController < ApplicationController
       })
       @current_user.devices << device
     end
-    redirect_to user_path(current_user)
+    redirect_to profile_path
   end
 
   def new
