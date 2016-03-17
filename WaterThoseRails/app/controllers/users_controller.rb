@@ -13,14 +13,14 @@ class UsersController < ApplicationController
     if params[:mac_address].blank?
       raise("MAC Address required")
     else
+      hour_utc= (Date.today.in_time_zone(-7) + (params[:auto_water_hour_local].to_i).hours).utc.hour
       device = Device.new({
         :mac_address => params[:mac_address],
         :name => params[:name],
         :manual_watering_requested => false,
         :last_auto_water_date => Time.now,
         :auto_water_period_days => params[:auto_water_period_days],
-        :auto_water_hour_utc => (params[:auto_water_hour_local].to_i +
-          params[:timezone_offset].to_i/60)%24
+        :auto_water_hour_utc => hour_utc
       })
       @current_user.devices << device
     end
