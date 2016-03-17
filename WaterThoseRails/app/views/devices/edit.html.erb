@@ -17,6 +17,7 @@
             <div class="form-group">
               <%= label_tag(:auto_water_period_days, "Water every (days)") %>
               <%= text_field_tag(:auto_water_period_days, 2, placeholder: 'days', required: "required", class: "form-control") %>
+              <%= label_tag(:auto_water_hour_local, "Time") %>
               <%= select_tag(:auto_water_hour_local, options_for_select([
                 ["12am", "0"],
                 ["1am", "1"],
@@ -43,7 +44,7 @@
                 ["10pm", "22"],
                 ["11pm", "23"],
                 ["12pm", "24"]
-                ])) %>
+                )) %>
                 <%= submit_tag("Save", class: "btn btn-primary") %>
                 <% end %>
               </div>

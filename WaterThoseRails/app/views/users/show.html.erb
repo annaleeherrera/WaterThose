@@ -1,4 +1,3 @@
-
 <div class="row">
   <div class= "col-md-12">
     <div class="panel panel-primary">
@@ -18,6 +17,7 @@
           <div class="form-group">
             <%= label_tag(:auto_water_period_days, "Water every (days)") %>
             <%= text_field_tag(:auto_water_period_days, 2, placeholder: 'days', required: "required", class: "form-control") %>
+            <%= label_tag(:auto_water_hour_local, "Time") %>
             <%= select_tag(:auto_water_hour_local, options_for_select([
               ["12am", "0"],
               ["1am", "1"],
@@ -44,8 +44,8 @@
               ["10pm", "22"],
               ["11pm", "23"],
               ["12pm", "24"]
-              ])) %>
-              <%= submit_tag("Register") %>
+              ]),class:"dropdown")%>
+            <%= submit_tag("Register", class: "btn btn-primary") %>
             <% end %>
           </div>
         </div>
@@ -57,11 +57,25 @@
     <div class="panel panel-info">
       <div class="panel-heading">Plants</div>
       <div class="panel-body">
-        <table class = "table table-responsive">
-          <%= label_tag(:name, "Plant Name") %>
+        <table class = "table table-condensed">
+          <thead>
+            <tr>
+              <th> Plant Name </th>
+              <th> Device ID </th>
+              <th> Frquency </th>
+              <th> Time </th>
+              <th>  </th>
+              <th>  </th>
+              <th>  </th>
+            </tr>
+          </thead>
+          <tbody>
           <% @devices.each do |device| %>
           <tr>
             <td><%= device.name %></td>
+            <td> <%=device.mac_address%> </td>
+            <td><%="#{device.auto_water_period_days} days"%></td>
+            <td><%="#{device.auto_water_period_days}:00"%></td>
             <td><a class="btn btn-primary water_button"
               href="#"
               role="button"
@@ -73,6 +87,7 @@
           <td><%= link_to "Delete", device_path(device), method: :delete, data: { confirm: 'Delete device?' }, class: "btn btn-danger" %></td>
           <% end %>
         </tr>
+      </tbody>
       </table>
     </div>
   </div>
