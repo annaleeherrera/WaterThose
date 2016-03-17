@@ -11,16 +11,6 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
-  def find_device
-    @device = Device.find_by!(mac_address: params[:mac_address])
-    # if @device == nil
-    #   @device = Device.create
-    #   @device.mac_address = device_params[:mac_address]
-    #   @device.save!
-    # end
-  end
-
-
   def require_login
     if @current_user.nil?
       flash[:error] = "You must be logged in to view this section"
