@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :device, class: Device do
     name "Ada Lovelace"
-    mac_address "Adele"
+    mac_address "123ab"
     manual_watering_requested false
     last_auto_water_date "2016-03-16"
     auto_water_period_days 5
