@@ -8,40 +8,40 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <!-- <a class="navbar-brand" href="#"></a> -->
+  <div class="wrapper">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <!-- <a class="navbar-brand" href="#"></a> -->
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Home <span class="sr-only">(current)</span></a></li>
+
+          </ul>
+
+          <!-- code for the right side of the navbar -->
+          <ul class="nav navbar-nav navbar-right">
+            <% if @current_user.nil? %>
+            <li><%= link_to "Login", new_session_path %></li>
+            <li><%= link_to "Sign Up", users_new_path %></li>
+            <% else %>
+            <li><%= link_to "Manage Devices", profile_path %></li>
+            <li><%= link_to "Logout", logout_path %></li>
+            <% end %>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <div id="main-contents">
+      <div class="container">
+        <%= yield %>
       </div>
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="/">Home <span class="sr-only">(current)</span></a></li>
-
-        </ul>
-
-        <!-- code for the right side of the navbar -->
-        <ul class="nav navbar-nav navbar-right">
-          <% if @current_user.nil? %>
-          <li><%= link_to "Login", new_session_path %></li>
-          <li><%= link_to "Sign Up", users_new_path %></li>
-          <% else %>
-          <li><%= link_to "Manage Devices", profile_path %></li>
-          <li><%= link_to "Logout", logout_path %></li>
-          <% end %>
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
-  <div id="main-contents">
-    <div class="container">
-      <%= yield %>
     </div>
   </div>
-
   <footer>
   </footer>
-
 </body>
 </html>
